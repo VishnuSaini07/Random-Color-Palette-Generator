@@ -5,10 +5,7 @@ const generateBtn = document.querySelector("button");
 let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
 let colorArray = [];
 let objects = {};
-
-function refreshPage(){
-    window.location.reload();
-}
+let result = []
 
 window.onload = function () {
     let clr = "";
@@ -20,7 +17,6 @@ window.onload = function () {
     colorArray.push(clr);
     let text = colorArray.toString();
 
-    let result = []
     for(let i=0; i<text.length; i += 6) {
         result.push(text.substring(i, i+6));
     }
@@ -31,13 +27,17 @@ window.onload = function () {
                         <div class="card shadow-lg border-0" style="width: 18rem;">
                             <div class="color" style=" background: #${value}"></div>
                             <div class="card-body">
-                            <h4 class="card-title text-center">#${value}</h4>
+                                <h4 class="card-title text-center">#${value}</h4>
                             </div>
                         </div>
                     </div>`;
+        
     })
     document.getElementById('list').innerHTML = tableData;
-       return result.pop();
+}
+
+function refreshPage(){
+    window.location.reload();
 }
 
 function randm() {
